@@ -14,8 +14,21 @@ class LinkedList
     attr_accessor :head, :tail
 
     def initialize
-        @head = head
-        @tail = tail
+        @head = nil
+        @tail = nil
+    end
+
+    def append(value)
+        new_node = Node.new(value)
+        @head = new_node if @head.nil?
+        @tail.next_node = new_node
+        @tail = new_node
+    end
+
+    def prepend(value)
+        new_node = Node.new(value, @head)
+        @head = new_node
+        @tail = new_node if @tail.nil?
     end
 
 end
