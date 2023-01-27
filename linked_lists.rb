@@ -31,6 +31,35 @@ class LinkedList
         @tail = new_node if @tail.nil?
     end
 
+    def size
+        counter = 0
+        current_node = @head
+        until current_node.nil?
+            counter += 1
+            current_node = current_node.next_node
+        end
+        counter
+    end
+
+    def head
+        @head
+    end
+
+    def tail
+        @tail
+    end
+
+    def at(index)
+        return 'Error, given index is invalid.' if index.negative?
+
+        targeted_node = @head
+        targeted_index = 0
+        until targeted_index == index
+            targeted_index += 1
+            targeted_node = targeted_node.next_node
+        end
+        targeted_node
+    end
 end
 
 list = LinkedList.new
